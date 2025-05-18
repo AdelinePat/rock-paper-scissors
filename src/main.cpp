@@ -3,6 +3,7 @@
 
 int main(int argc, char const *argv[])
 {
+    std::setlocale(LC_ALL, ".utf8");
     auto choice{0};
     auto random_value{-1};
     auto bot_score{0};
@@ -12,13 +13,16 @@ int main(int argc, char const *argv[])
     do {
         number_turn++;
         choice = displayMenu();
-        if (choice != 0) {
-            choice--;
+        if (choice < 0 || choice > 3) {
+            cout<<"Entrée invalide, veuillez recommencer !"<<endl<<endl;
+            continue;
+        } else if (choice != 0) {
+            // choice--;
             random_value = getRandomNumber();
-            calculateScore(choice, random_value, user_score, bot_score);
-            displayChoice(choice, random_value);
+            calculateScore(choice-1, random_value, user_score, bot_score);
+            displayChoice(choice-1, random_value);
             displayResult(user_score, bot_score, number_turn);
-            choice++;
+            // choice++;
         }
     } while (choice != 0);
     cout<<"Merci d'avoir joué ! Bye Bye ..."<<endl;
