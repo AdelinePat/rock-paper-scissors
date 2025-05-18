@@ -3,13 +3,13 @@
 
 int main(int argc, char const *argv[])
 {
-    auto choice{-1};
+    auto choice{0};
     auto random_value{-1};
     auto bot_score{0};
     auto user_score{0};
     auto number_turn{0};
 
-    while (choice != 0) {
+    do {
         number_turn++;
         choice = displayMenu();
         if (choice != 0) {
@@ -20,7 +20,7 @@ int main(int argc, char const *argv[])
             displayResult(user_score, bot_score, number_turn);
             choice++;
         }
-    }
+    } while (choice != 0);
     cout<<"Merci d'avoir joué ! Bye Bye ..."<<endl;
     return 0;
 }
