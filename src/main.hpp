@@ -19,6 +19,12 @@ enum class hand {
     scissors
 };
 
+enum class winner {
+    player, 
+    bot,
+    draw
+};
+
 int displayMenu();
 void displayChoice(const hand choice, const hand random_value);
 inline void displayResult(const int user_score, const int bot_score, int number_turn) {
@@ -26,6 +32,6 @@ inline void displayResult(const int user_score, const int bot_score, int number_
     cout<<"Score bot : "<<bot_score<<"/"<<number_turn<<endl<<endl;
 }
 hand getRandomNumber();
-void calculateScore(const hand choice, const hand random_value, int& user_score, int& bot_score);
+winner calculateScore(const hand choice, const hand random_value, int& user_score, int& bot_score);
 string setString(const hand choice);
 #endif

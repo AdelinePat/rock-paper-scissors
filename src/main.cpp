@@ -3,12 +3,14 @@
 
 int main(int argc, char const *argv[])
 {
-    std::setlocale(LC_ALL, ".utf8");
+    // std::setlocale(LC_ALL, ".utf8");
+    // std::setlocale(LC_ALL, "");
     int choice{0};
     hand random_value{hand::paper};
     int bot_score{0};
     int user_score{0};
     int number_turn{0};
+    winner victor{winner::draw};
 
     do {
         number_turn++;
@@ -18,11 +20,22 @@ int main(int argc, char const *argv[])
             continue;
         } else if (choice != 0) {
             random_value = getRandomNumber();
-            calculateScore(static_cast<hand>(choice-1), random_value, user_score, bot_score);
+            victor = calculateScore(static_cast<hand>(choice-1), random_value, user_score, bot_score);
             displayChoice(static_cast<hand>(choice-1), random_value);
+            switch (victor) {
+                case winner::player:
+                    cout<<"Vous avez gagné ce round !"<<endl;
+                    break;
+                case winner::bot:
+                    cout<<"Le bot a gagné ce round..."<<endl;
+                    break;
+                case winner::draw:
+                    cout<<"C'est une égalité !"<<endl;
+                    break;
+            }
             displayResult(user_score, bot_score, number_turn);
         }
-        
+
     } while (choice != 0);
     cout<<"Merci d'avoir joué ! Bye Bye ..."<<endl;
     return 0;
@@ -74,28 +87,35 @@ hand getRandomNumber() {
 /// @param random_value value from getRandomNumber AKA bot choice
 /// @param user_score 
 /// @param bot_score 
-void calculateScore(const hand choice, const hand random_value, int& user_score, int& bot_score) {
+winner calculateScore(const hand choice, const hand random_value, int& user_score, int& bot_score) {
     switch (choice) {
         case hand::rock:
             if (random_value == hand::scissors) {
-                user_score++;     
+                user_score++;
+                return winner::player;
             } else if (random_value == hand::paper) {
                 bot_score++;
+                return winner::bot;
             }
             break;
         case hand::paper:
             if (random_value == hand::rock) {
-                user_score++;     
+                user_score++;
+                return winner::player;     
             } else if (random_value == hand::scissors) {
                 bot_score++;
+                return winner::bot;
             }
             break;
         case hand::scissors:
             if (random_value == hand::paper) {
-                user_score++;     
+                user_score++;
+                return winner::player;   
             } else if (random_value == hand::rock) {
                 bot_score++;
+                return winner::bot;
             }
             break;
     }
+    return winner::draw;
 }
