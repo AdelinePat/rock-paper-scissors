@@ -1,7 +1,5 @@
 
-#include "main.h"
-
-
+#include "main.hpp"
 
 int main(int argc, char const *argv[])
 {
@@ -33,9 +31,9 @@ int displayMenu() {
     auto choice{0};
     cout<<"Veuillez choisir parmi ces possibilités :"<<endl;
     cout<<"0. Quitter"<<endl;
-    cout<<"1. Pierre"<<endl;
-    cout<<"2. Papier"<<endl;
-    cout<<"3. Ciseaux"<<endl;
+    cout<<"1. "<<str_rock<<endl;
+    cout<<"2. "<<str_paper<<endl;
+    cout<<"3. "<<str_scissors<<endl;
     cin>>choice;
     return choice;
 }
@@ -53,11 +51,11 @@ void displayChoice (const int choice, const int random_value) {
 string setString(const int choice) {
     string final_string = "";
     if (choice == static_cast<int>(hand::rock)){
-        final_string = "pierre";
+        final_string = str_rock;
     } else if (choice == static_cast<int>(hand::paper)) {
-        final_string = "papier";
+        final_string = str_paper;
     } else {
-        final_string = "ciseaux";
+        final_string = str_scissors;
     }
     return final_string;
 }
@@ -75,21 +73,21 @@ int getRandomNumber() {
 /// @param bot_score 
 void calculateScore(const int choice, const int random_value, int& user_score, int& bot_score) {
     switch (choice) {
-        case static_cast<int>(hand::rock): // Rock
+        case static_cast<int>(hand::rock):
             if (random_value == static_cast<int>(hand::scissors)) {
                 user_score++;     
             } else if (random_value == static_cast<int>(hand::paper)) {
                 bot_score++;
             }
             break;
-        case static_cast<int>(hand::paper): // Paper
+        case static_cast<int>(hand::paper):
             if (random_value == static_cast<int>(hand::rock)) {
                 user_score++;     
             } else if (random_value == static_cast<int>(hand::scissors)) {
                 bot_score++;
             }
             break;
-        case static_cast<int>(hand::scissors): // Scissors
+        case static_cast<int>(hand::scissors):
             if (random_value == static_cast<int>(hand::paper)) {
                 user_score++;     
             } else if (random_value == static_cast<int>(hand::rock)) {

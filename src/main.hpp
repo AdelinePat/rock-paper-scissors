@@ -3,6 +3,9 @@
 #include <iostream>
 #include <string>
 #include <time.h>
+#define str_paper "Papier"
+#define str_rock "Pierre"
+#define str_scissors "Ciseaux"
 
 // creating my aliases
 using std::cout;
