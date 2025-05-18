@@ -1,0 +1,8 @@
+[
+{
+  "directory": "C:/Users/Adeline/Documents/C++/rock-paper-scissors/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DDEBUG_MODE -g -o CMakeFiles\\RPS.dir\\src\\main.cpp.obj -c C:\\Users\\Adeline\\Documents\\C++\\rock-paper-scissors\\src\\main.cpp",
+  "file": "C:\\Users\\Adeline\\Documents\\C++\\rock-paper-scissors\\src\\main.cpp",
+  "output": "CMakeFiles\\RPS.dir\\src\\main.cpp.obj"
+}
+]

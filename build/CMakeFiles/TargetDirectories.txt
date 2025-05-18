@@ -1,0 +1,5 @@
+C:/Users/Adeline/Documents/C++/rock-paper-scissors/build/CMakeFiles/RPS.dir
+C:/Users/Adeline/Documents/C++/rock-paper-scissors/build/CMakeFiles/package.dir
+C:/Users/Adeline/Documents/C++/rock-paper-scissors/build/CMakeFiles/package_source.dir
+C:/Users/Adeline/Documents/C++/rock-paper-scissors/build/CMakeFiles/edit_cache.dir
+C:/Users/Adeline/Documents/C++/rock-paper-scissors/build/CMakeFiles/rebuild_cache.dir
