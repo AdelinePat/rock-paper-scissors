@@ -22,17 +22,7 @@ int main(int argc, char const *argv[])
             random_value = getRandomNumber();
             victor = calculateScore(static_cast<hand>(choice-1), random_value, user_score, bot_score);
             displayChoice(static_cast<hand>(choice-1), random_value);
-            switch (victor) {
-                case winner::player:
-                    cout<<"Vous avez gagné ce round !"<<endl;
-                    break;
-                case winner::bot:
-                    cout<<"Le bot a gagné ce round..."<<endl;
-                    break;
-                case winner::draw:
-                    cout<<"C'est une égalité !"<<endl;
-                    break;
-            }
+            displayVictor(victor);
             displayResult(user_score, bot_score, number_turn);
         }
 
@@ -76,7 +66,23 @@ string setString(const hand choice) {
     return final_string;
 }
 
-hand getRandomNumber() {
+void displayVictor(const winner& victor)
+{
+    switch (victor) {
+        case winner::player:
+            cout<<"Vous avez gagné ce round !"<<endl;
+            break;
+        case winner::bot:
+            cout<<"Le bot a gagné ce round..."<<endl;
+            break;
+        case winner::draw:
+            cout<<"C'est une égalité !"<<endl;
+            break;
+    }
+}
+
+hand getRandomNumber()
+{
     std::srand(time(nullptr)); //get the value to shuffle the random number
     auto random_value {std::rand()};
     return static_cast<hand>(random_value%3);

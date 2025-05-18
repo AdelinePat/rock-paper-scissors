@@ -31,6 +31,7 @@ inline void displayResult(const int user_score, const int bot_score, int number_
     cout<<"Score joueur : "<<user_score<<"/"<<number_turn<<endl;
     cout<<"Score bot : "<<bot_score<<"/"<<number_turn<<endl<<endl;
 }
+void displayVictor(const winner& victor);
 hand getRandomNumber();
 winner calculateScore(const hand choice, const hand random_value, int& user_score, int& bot_score);
 string setString(const hand choice);
